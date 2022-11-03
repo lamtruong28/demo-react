@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import TodoItem from "./TodoItem";
 
 const initTodo = [
@@ -21,7 +22,7 @@ function Todo() {
     const [todo, setTodo] = useState('');
 
     const handleAddTodo = () => {
-        todo && setTodoList([...todoList, {id: todoList.length+1, name: todo}]);
+        todo && setTodoList([...todoList, {id: uuidv4(), name: todo}]);
         setTodo('');
     }
 
